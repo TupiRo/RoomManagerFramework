@@ -1,0 +1,12 @@
+2015-06-10 16:05:13,240 [main] INFO testEnabledImpersonation - Browser Opened
+2015-06-10 16:05:14,249 [main] INFO testEnabledImpersonation - Click to Sign In
+2015-06-10 16:05:15,525 [main] INFO testEnabledImpersonation - Go to Impersonation
+2015-06-10 16:05:16,266 [main] INFO testEnabledImpersonation - Check Impersonation to is Enabled
+2015-06-10 16:05:17,261 [main] INFO testEnabledImpersonation - Waiting for the Message
+2015-06-10 16:05:17,971 [main] INFO testEnabledImpersonation - Verify Assert of the Test
+2015-06-10 16:05:21,148 [main] INFO testDisabledImpersonation - Browser Opened
+2015-06-10 16:05:21,946 [main] INFO testDisabledImpersonation - Click to Sign In
+2015-06-10 16:05:23,043 [main] INFO testDisabledImpersonation - Go to Impersonation
+2015-06-10 16:05:23,769 [main] INFO testDisabledImpersonation - Check Impersonation to is Disabled
+2015-06-10 16:05:24,280 [main] INFO testDisabledImpersonation - Waiting for the Message
+2015-06-10 16:05:24,934 [main] INFO testDisabledImpersonation - Verify Assert of the Test
