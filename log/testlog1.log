@@ -10,3 +10,25 @@
 2015-06-10 16:05:23,769 [main] INFO testDisabledImpersonation - Check Impersonation to is Disabled
 2015-06-10 16:05:24,280 [main] INFO testDisabledImpersonation - Waiting for the Message
 2015-06-10 16:05:24,934 [main] INFO testDisabledImpersonation - Verify Assert of the Test
+2015-06-11 10:07:30,589 [main] INFO testEnabledImpersonation - Browser Opened
+2015-06-11 10:07:34,014 [main] INFO testEnabledImpersonation - Verify Assert of the Test
+2015-06-11 11:51:15,673 [main] INFO testEnabledImpersonation - Browser Opened
+2015-06-11 11:51:20,425 [main] INFO testEnabledImpersonation - Verify Assert of the Test
+2015-06-11 12:26:20,862 [main] INFO testEnabledImpersonation - Browser Opened
+2015-06-11 12:26:25,077 [main] INFO testEnabledImpersonation - Verify Assert of the Test
+2015-06-11 12:26:28,023 [main] INFO testDisabledImpersonation - Browser Opened
+2015-06-11 12:26:32,490 [main] INFO testDisabledImpersonation - Verify Assert of the Test
+2015-06-11 12:28:55,085 [main] INFO testEnabledImpersonation - Browser Opened
+2015-06-11 12:28:59,875 [main] INFO testEnabledImpersonation - Verify Assert of the Test
+2015-06-11 12:29:03,567 [main] INFO testDisabledImpersonation - Browser Opened
+2015-06-11 12:29:07,971 [main] INFO testDisabledImpersonation - Verify Assert of the Test
+2015-06-11 15:39:43,467 [main] INFO testEnabledImpersonation - Browser Opened
+2015-06-11 15:39:46,754 [main] INFO testEnabledImpersonation - Verify Assert of the Test
+2015-06-11 16:09:42,239 [main] INFO testEnabledImpersonation - Browser Opened
+2015-06-11 16:09:47,121 [main] INFO testEnabledImpersonation - Verify Assert of the Test
+2015-06-11 16:09:51,789 [main] INFO testDisabledImpersonation - Browser Opened
+2015-06-11 16:09:56,898 [main] INFO testDisabledImpersonation - Verify Assert of the Test
+2015-06-11 16:12:28,534 [main] INFO testEnabledImpersonation - Browser Opened
+2015-06-11 16:12:34,260 [main] INFO testEnabledImpersonation - Verify Assert of the Test
+2015-06-11 16:12:38,575 [main] INFO testDisabledImpersonation - Browser Opened
+2015-06-11 16:12:43,155 [main] INFO testDisabledImpersonation - Verify Assert of the Test

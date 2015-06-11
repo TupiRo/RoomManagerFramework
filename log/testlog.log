@@ -10,3 +10,25 @@
 2015-06-10 16:05:23,769 - testDisabledImpersonation -INFO - Check Impersonation to is Disabled
 2015-06-10 16:05:24,280 - testDisabledImpersonation -INFO - Waiting for the Message
 2015-06-10 16:05:24,934 - testDisabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 10:07:30,589 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-11 10:07:34,014 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 11:51:15,673 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-11 11:51:20,425 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 12:26:20,862 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-11 12:26:25,077 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 12:26:28,023 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-11 12:26:32,490 - testDisabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 12:28:55,085 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-11 12:28:59,875 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 12:29:03,567 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-11 12:29:07,971 - testDisabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 15:39:43,467 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-11 15:39:46,754 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 16:09:42,239 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-11 16:09:47,121 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 16:09:51,789 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-11 16:09:56,898 - testDisabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 16:12:28,534 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-11 16:12:34,260 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-11 16:12:38,575 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-11 16:12:43,155 - testDisabledImpersonation -INFO - Verify Assert of the Test
