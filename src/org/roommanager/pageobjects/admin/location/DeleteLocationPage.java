@@ -11,9 +11,6 @@ public class DeleteLocationPage {
 	private final WebDriver driver;
 	By removeButtonLocator = By.xpath("//button[2]");
 	
-	
-	
-	
     public DeleteLocationPage(WebDriver driver) {
         this.driver = driver;
     }

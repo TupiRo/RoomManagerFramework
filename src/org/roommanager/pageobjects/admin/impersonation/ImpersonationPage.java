@@ -10,7 +10,7 @@ import org.roommanager.models.admin.impersonation.ImpersonationModel;
 
 public class ImpersonationPage {
 	
-	private final WebDriver driver;
+	public WebDriver driver;
 	
 	By impersonationLocator = ImpersonationModel.CHECKBOX_IMPERSONATION;
 	By saveButtonLocator = ImpersonationModel.SAVEBUTTON;
@@ -29,7 +29,7 @@ public class ImpersonationPage {
     
     public ImpersonationPage saveImpersonation() {
     	
-    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(saveButtonLocator));
+    	(new WebDriverWait(driver, 120)).until(ExpectedConditions.presenceOfElementLocated(saveButtonLocator));
     	driver.findElement(saveButtonLocator).click();
         return this;    
     }

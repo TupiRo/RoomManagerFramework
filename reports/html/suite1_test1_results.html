@@ -12,15 +12,172 @@
 <body>
 <h1>Tests Add and Remove Location, Add Respurce</h1>
 <p>
-  Test duration: 43.547s
+  Test duration: 28.210s
 </p>
 
+  <table class="resultsTable configTable">
+    <tr><th colspan="3" class="header failedConfig">Failed Configuration</th></tr>
+              <tr class="group">
+        <td colspan="3">org.roommanager.test.admin.impersonation.DisabledImpersonation</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  tearDown
+      </td>
+  <td class="duration">
+    0.000s
+  </td>
+  <td class="result">
+        
+    
+        
 
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.<br/>
+Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;<br/>
+System info: host: &apos;VDQADEV01-I8Y3O&apos;, ip: &apos;172.20.200.217&apos;, os.name: &apos;Windows Server 2012 R2&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.7.0_80&apos;<br/>
+Driver info: driver.version: RemoteWebDriver</b></a><br />
+    <div class="stackTrace" id="exception-0">
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:593)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:468)<br />
+              org.roommanager.test.admin.impersonation.DisabledImpersonation.tearDown(DisabledImpersonation.java:73)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br />
+              sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br />
+              java.lang.reflect.Method.invoke(Unknown Source)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)<br />
+              org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:521)<br />
+              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)<br />
+              org.testng.internal.Invoker.invokeConfigurations(Invoker.java:140)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:327)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:259)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1200)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1125)<br />
+              org.testng.TestNG.run(TestNG.java:1033)<br />
+              org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)<br />
+              org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)<br />
+              org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)<br />
+                    <b>Caused by: </b> <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse">org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7055 [/127.0.0.1] failed: Connection refused: connect</a><br />
+        <div class="stackTrace" id="exception-1">
+                      org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:142)<br />
+                      org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)<br />
+                      org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)<br />
+                      org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)<br />
+                      org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)<br />
+                      org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)<br />
+                      org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)<br />
+                      org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:126)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)<br />
+                      org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)<br />
+                      org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)<br />
+                      org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:468)<br />
+                      org.roommanager.test.admin.impersonation.DisabledImpersonation.tearDown(DisabledImpersonation.java:73)<br />
+                      sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+                      sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br />
+                      sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br />
+                      java.lang.reflect.Method.invoke(Unknown Source)<br />
+                      org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)<br />
+                      org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:521)<br />
+                      org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)<br />
+                      org.testng.internal.Invoker.invokeConfigurations(Invoker.java:140)<br />
+                      org.testng.SuiteRunner.privateRun(SuiteRunner.java:327)<br />
+                      org.testng.SuiteRunner.run(SuiteRunner.java:259)<br />
+                      org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+                      org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+                      org.testng.TestNG.runSuitesSequentially(TestNG.java:1200)<br />
+                      org.testng.TestNG.runSuitesLocally(TestNG.java:1125)<br />
+                      org.testng.TestNG.run(TestNG.java:1033)<br />
+                      org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)<br />
+                      org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)<br />
+                      org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)<br />
+                  </div>
+              <b>Caused by: </b> <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse">java.net.ConnectException: Connection refused: connect</a><br />
+        <div class="stackTrace" id="exception-2">
+                      java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)<br />
+                      java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)<br />
+                      java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)<br />
+                      java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)<br />
+                      java.net.AbstractPlainSocketImpl.connect(Unknown Source)<br />
+                      java.net.PlainSocketImpl.connect(Unknown Source)<br />
+                      java.net.SocksSocketImpl.connect(Unknown Source)<br />
+                      java.net.Socket.connect(Unknown Source)<br />
+                      org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)<br />
+                      org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)<br />
+                      org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)<br />
+                      org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)<br />
+                      org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)<br />
+                      org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)<br />
+                      org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)<br />
+                      org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)<br />
+                      org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:126)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)<br />
+                      org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)<br />
+                      org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)<br />
+                      org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:468)<br />
+                      org.roommanager.test.admin.impersonation.DisabledImpersonation.tearDown(DisabledImpersonation.java:73)<br />
+                      sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+                      sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br />
+                      sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br />
+                      java.lang.reflect.Method.invoke(Unknown Source)<br />
+                      org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)<br />
+                      org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:521)<br />
+                      org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)<br />
+                      org.testng.internal.Invoker.invokeConfigurations(Invoker.java:140)<br />
+                      org.testng.SuiteRunner.privateRun(SuiteRunner.java:327)<br />
+                      org.testng.SuiteRunner.run(SuiteRunner.java:259)<br />
+                      org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+                      org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+                      org.testng.TestNG.runSuitesSequentially(TestNG.java:1200)<br />
+                      org.testng.TestNG.runSuitesLocally(TestNG.java:1125)<br />
+                      org.testng.TestNG.run(TestNG.java:1033)<br />
+                      org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)<br />
+                      org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)<br />
+                      org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)<br />
+                  </div>
+          </div>
+      </td>
+</tr>
+    
+          <tr><td colspan="3">&nbsp;</td></tr>
+      <tr><td colspan="3" class="header skippedConfig">Skipped Configuration</td></tr>
+                    <tr>
+          <td colspan="3" class="group">org.roommanager.test.admin.impersonation.DisabledImpersonation</td>
+        </tr>
+                
+<tr>
+  <td class="method">
+                  tearDown
+      </td>
+  <td class="duration">
+    0.000s
+  </td>
+  <td class="result">
+                               
+    
+        
 
+      </td>
+</tr>
+            </table>
 
 
   <table class="resultsTable">
-    <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
+    <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
           <tr>
         <td colspan="3" class="group">org.roommanager.test.admin.impersonation.DisabledImpersonation</td>
       </tr>
@@ -30,15 +187,158 @@
                   testDisabledImpersonation
       </td>
   <td class="duration">
-    8.879s
+    11.693s
   </td>
   <td class="result">
         
     
         
 
+        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.<br/>
+Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8&apos;, time: &apos;2015-02-26 23:59:50&apos;<br/>
+System info: host: &apos;VDQADEV01-I8Y3O&apos;, ip: &apos;172.20.200.217&apos;, os.name: &apos;Windows Server 2012 R2&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.7.0_80&apos;<br/>
+Driver info: driver.version: RemoteWebDriver</b></a><br />
+    <div class="stackTrace" id="exception-1">
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:593)<br />
+              org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)<br />
+              org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)<br />
+              org.roommanager.pageobjects.admin.login.LoginPage.signInButton(LoginPage.java:24)<br />
+              org.roommanager.test.admin.impersonation.DisabledImpersonation.testDisabledImpersonation(DisabledImpersonation.java:62)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br />
+              sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br />
+              java.lang.reflect.Method.invoke(Unknown Source)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:663)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:849)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1157)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:771)<br />
+              org.testng.TestRunner.run(TestRunner.java:621)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:357)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:259)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1200)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1125)<br />
+              org.testng.TestNG.run(TestNG.java:1033)<br />
+              org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)<br />
+              org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)<br />
+              org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)<br />
+                    <b>Caused by: </b> <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse">org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7055 [/127.0.0.1] failed: Connection refused: connect</a><br />
+        <div class="stackTrace" id="exception-2">
+                      org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:142)<br />
+                      org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)<br />
+                      org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)<br />
+                      org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)<br />
+                      org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)<br />
+                      org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)<br />
+                      org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)<br />
+                      org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)<br />
+                      org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)<br />
+                      org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)<br />
+                      org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)<br />
+                      org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)<br />
+                      org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)<br />
+                      org.roommanager.pageobjects.admin.login.LoginPage.signInButton(LoginPage.java:24)<br />
+                      org.roommanager.test.admin.impersonation.DisabledImpersonation.testDisabledImpersonation(DisabledImpersonation.java:62)<br />
+                      sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+                      sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br />
+                      sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br />
+                      java.lang.reflect.Method.invoke(Unknown Source)<br />
+                      org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)<br />
+                      org.testng.internal.Invoker.invokeMethod(Invoker.java:663)<br />
+                      org.testng.internal.Invoker.invokeTestMethod(Invoker.java:849)<br />
+                      org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1157)<br />
+                      org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)<br />
+                      org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)<br />
+                      org.testng.TestRunner.privateRun(TestRunner.java:771)<br />
+                      org.testng.TestRunner.run(TestRunner.java:621)<br />
+                      org.testng.SuiteRunner.runTest(SuiteRunner.java:357)<br />
+                      org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)<br />
+                      org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)<br />
+                      org.testng.SuiteRunner.run(SuiteRunner.java:259)<br />
+                      org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+                      org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+                      org.testng.TestNG.runSuitesSequentially(TestNG.java:1200)<br />
+                      org.testng.TestNG.runSuitesLocally(TestNG.java:1125)<br />
+                      org.testng.TestNG.run(TestNG.java:1033)<br />
+                      org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)<br />
+                      org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)<br />
+                      org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)<br />
+                  </div>
+              <b>Caused by: </b> <a href="javascript:toggleElement('exception-3', 'block')" title="Click to expand/collapse">java.net.ConnectException: Connection refused: connect</a><br />
+        <div class="stackTrace" id="exception-3">
+                      java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)<br />
+                      java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)<br />
+                      java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)<br />
+                      java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)<br />
+                      java.net.AbstractPlainSocketImpl.connect(Unknown Source)<br />
+                      java.net.PlainSocketImpl.connect(Unknown Source)<br />
+                      java.net.SocksSocketImpl.connect(Unknown Source)<br />
+                      java.net.Socket.connect(Unknown Source)<br />
+                      org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)<br />
+                      org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)<br />
+                      org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)<br />
+                      org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)<br />
+                      org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)<br />
+                      org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)<br />
+                      org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)<br />
+                      org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)<br />
+                      org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)<br />
+                      org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)<br />
+                      org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)<br />
+                      org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)<br />
+                      org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)<br />
+                      org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)<br />
+                      org.roommanager.pageobjects.admin.login.LoginPage.signInButton(LoginPage.java:24)<br />
+                      org.roommanager.test.admin.impersonation.DisabledImpersonation.testDisabledImpersonation(DisabledImpersonation.java:62)<br />
+                      sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+                      sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br />
+                      sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br />
+                      java.lang.reflect.Method.invoke(Unknown Source)<br />
+                      org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)<br />
+                      org.testng.internal.Invoker.invokeMethod(Invoker.java:663)<br />
+                      org.testng.internal.Invoker.invokeTestMethod(Invoker.java:849)<br />
+                      org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1157)<br />
+                      org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)<br />
+                      org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)<br />
+                      org.testng.TestRunner.privateRun(TestRunner.java:771)<br />
+                      org.testng.TestRunner.run(TestRunner.java:621)<br />
+                      org.testng.SuiteRunner.runTest(SuiteRunner.java:357)<br />
+                      org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)<br />
+                      org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)<br />
+                      org.testng.SuiteRunner.run(SuiteRunner.java:259)<br />
+                      org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+                      org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+                      org.testng.TestNG.runSuitesSequentially(TestNG.java:1200)<br />
+                      org.testng.TestNG.runSuitesLocally(TestNG.java:1125)<br />
+                      org.testng.TestNG.run(TestNG.java:1033)<br />
+                      org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)<br />
+                      org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)<br />
+                      org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)<br />
+                  </div>
+          </div>
       </td>
 </tr>
+      </table>
+
+
+  <table class="resultsTable">
+    <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
           <tr>
         <td colspan="3" class="group">org.roommanager.test.admin.impersonation.EnabledImpersonation</td>
       </tr>
@@ -48,7 +348,7 @@
                   testEnabledImpersonation
       </td>
   <td class="duration">
-    9.276s
+    7.458s
   </td>
   <td class="result">
         

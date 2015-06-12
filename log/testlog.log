@@ -32,3 +32,86 @@
 2015-06-11 16:12:34,260 - testEnabledImpersonation -INFO - Verify Assert of the Test
 2015-06-11 16:12:38,575 - testDisabledImpersonation -INFO - Browser Opened
 2015-06-11 16:12:43,155 - testDisabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 12:17:16,479 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 12:17:21,191 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 12:17:26,989 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 12:52:52,604 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 12:52:58,639 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 12:55:00,400 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 12:55:07,100 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:34:36,470 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:34:36,676 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:35:24,177 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:35:24,381 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:37:32,667 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:37:32,920 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:41:37,753 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:41:44,511 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 13:41:44,581 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:41:51,084 - testDisabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 13:45:30,893 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:45:36,341 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:47:20,051 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:47:26,378 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:49:40,593 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:49:46,387 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:50:59,084 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:51:05,989 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 13:51:06,056 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:57:48,828 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:57:56,641 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 13:57:56,679 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 13:59:44,898 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 13:59:50,875 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 13:59:50,918 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 14:04:17,085 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 14:04:24,746 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 14:04:56,661 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 14:05:02,945 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 14:08:13,805 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 14:08:21,103 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 14:09:01,358 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 14:09:07,339 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 14:09:07,386 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:31:59,177 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 15:32:05,965 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 15:32:06,025 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:33:25,998 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 15:33:31,852 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 15:33:31,892 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:34:50,842 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:35:12,538 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:35:22,753 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:35:49,641 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:35:56,691 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:37:50,295 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 15:37:55,816 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:38:34,072 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 15:38:40,048 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:47:25,912 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 15:47:32,511 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 15:47:32,571 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:51:07,677 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 15:51:15,346 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 15:51:15,692 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 15:55:48,355 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 15:56:00,955 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 15:56:01,062 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 16:07:19,532 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 16:07:26,972 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 16:09:07,152 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 16:09:14,693 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 16:09:14,781 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 16:12:34,307 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 16:13:08,582 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 16:14:26,039 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 16:14:33,626 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 16:14:33,674 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 16:18:44,971 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 16:18:52,224 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 16:18:52,277 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 16:20:05,431 - testDisabledImpersonation -INFO - Browser Opened
+2015-06-12 16:20:13,450 - testDisabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 16:20:30,676 - testEnabledImpersonation -INFO - Browser Opened
+2015-06-12 16:20:38,402 - testEnabledImpersonation -INFO - Verify Assert of the Test
+2015-06-12 16:25:36,525 - testDisabledImpersonation -INFO - Browser Opened

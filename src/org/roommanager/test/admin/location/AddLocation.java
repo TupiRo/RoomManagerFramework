@@ -59,8 +59,7 @@ public class AddLocation {
     .setDisplayName(nameLocation)
     .saveNewLocation()
     .verifyLocationWasCreated();
-    
-    
+        
 	logger.info("Verify the Assert of the Test");
   }
 

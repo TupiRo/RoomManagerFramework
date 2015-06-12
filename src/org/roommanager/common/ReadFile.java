@@ -13,7 +13,7 @@ public class ReadFile {
 	public ReadFile(){
 		try {
 			 
-			input = new FileInputStream("resources/config.properties");
+			input = new FileInputStream("config/config.properties");
 	 
 			// load a properties file
 			prop.load(input);
