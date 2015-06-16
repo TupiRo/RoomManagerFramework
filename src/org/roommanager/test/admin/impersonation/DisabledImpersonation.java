@@ -1,12 +1,10 @@
 package org.roommanager.test.admin.impersonation;
 
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
+
 
 import org.junit.*;
 
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,6 +17,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
 import org.roommanager.models.admin.impersonation.ImpersonationModel;
 import org.roommanager.pageobjects.admin.impersonation.ImpersonationPage;
@@ -31,33 +30,32 @@ import org.apache.log4j.PropertyConfigurator;
 public class DisabledImpersonation {
   
   private static WebDriver driver;
+  public static Logger logger;
   public String baseUrl;
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
   public ReadFile reader = new ReadFile();
 
   @BeforeSuite
   public void setUp() throws Exception {
-	  driver = BrowserManager.initFireFox();
-    //driver = BrowserManager.initBrowser();
+	 // driver = BrowserManager.initFireFox();
+	 LoggerManager.initLogger();
+     driver = BrowserManager.initBrowser();
    
   }
 
-  @Test(priority = 1)
+  @Test
   public void testDisabledImpersonation() throws Exception {
 	
+	/*Expected and Actual Result*/
 	String expectedResult = "Impersonation is now disabled.";
 	By actualResult = ImpersonationModel.MESSAGE_IMPERSONATION;
 	
-	Logger logger = Logger.getLogger("testDisabledImpersonation");
-	PropertyConfigurator.configure("config/log4j.properties");
-	
     
-    logger.info("Browser Opened");
-    /*Test Impersonation is Disabled*/
+    /*Test for Impersonation is Disabled*/
     baseUrl = reader.getBaseURL();
     driver.get(baseUrl + "/#/login");
-	
+    LoggerManager.messageLogger("Browser is Open");
+    
+    driver.navigate().refresh();
     LoginPage logIn = new LoginPage(driver);
 	MainPage main = logIn.signInButton();
 	ImpersonationPage impersonation = main.selectImpersonationOption();
@@ -65,7 +63,8 @@ public class DisabledImpersonation {
 	
 	(new WebDriverWait(driver, 120)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
     assertEquals(expectedResult, driver.findElement(actualResult).getText());
-	logger.info("Verify Assert of the Test");
+    (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
+
   }
 
   @AfterSuite

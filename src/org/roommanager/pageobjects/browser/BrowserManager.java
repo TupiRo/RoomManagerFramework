@@ -18,14 +18,11 @@ public class BrowserManager {
 	
 	public static WebDriver driver;
 		
-	public BrowserManager(){	
-	}
-	
 	public static WebDriver initBrowser(){
 		if(driver == null){
 			System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
 		    driver = new ChromeDriver();
-		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    driver.manage().window().maximize();
 		}
 	    return driver;
@@ -33,9 +30,7 @@ public class BrowserManager {
 	
 	public static WebDriver initFireFox(){
 		if(driver == null){
-			
 		    driver = new FirefoxDriver();
-		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    driver.manage().window().maximize();
 		}
 	    return driver;
