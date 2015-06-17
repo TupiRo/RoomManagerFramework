@@ -34,6 +34,10 @@ public class ReadFile {
 		return prop.getProperty("baseURL");
 	}
 	
+	public String getLoginURL(){
+		return prop.getProperty("loginURL");
+	}
+	
 	public String getUserName(){
 		return prop.getProperty("userName");
 	}

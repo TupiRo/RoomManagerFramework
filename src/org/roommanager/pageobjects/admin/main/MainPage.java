@@ -33,6 +33,7 @@ public class MainPage {
     	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(locationLocator));
         driver.findElement(locationLocator).click();
         
+        LoggerManager.messageLogger("Selecting Location Option");
         return new LocationPage(driver);    
     }
 }

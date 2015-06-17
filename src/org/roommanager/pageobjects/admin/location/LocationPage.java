@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.roommanager.common.LoggerManager;
 import org.roommanager.models.admin.location.LocationModel;
 
 public class LocationPage {
@@ -28,6 +29,8 @@ public class LocationPage {
     	
     	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(addButtonLocator));
     	driver.findElement(addButtonLocator).click();
+    	LoggerManager.messageLogger("Click on Add Location Button");
+    	
         return new CreateLocationPage(driver);    
     }
     
@@ -42,14 +45,18 @@ public class LocationPage {
 		
 		(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(selectCheckBoxLocator));
 	    driver.findElement(selectCheckBoxLocator).click();
+	    LoggerManager.messageLogger("Selecting a Location");
+	    
 		return this;
 	}
 	
-	public LocationPage selectRemoveLocationButton(){
+	public DeleteLocationPage selectRemoveLocationButton(){
     	
     	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(removeButtonLocator));
     	driver.findElement(removeButtonLocator).click();
-        return this;    
+    	LoggerManager.messageLogger("Click on Remove Button");
+    	
+        return new DeleteLocationPage(driver);    
     }
 	
 	public LocationPage verifyLocationWasRemoved(String nameLocation) {

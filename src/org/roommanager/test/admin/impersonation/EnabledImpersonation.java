@@ -3,19 +3,18 @@ package org.roommanager.test.admin.impersonation;
 
 
 
-import org.junit.*;
+
 
 import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
@@ -25,8 +24,8 @@ import org.roommanager.pageobjects.admin.login.LoginPage;
 import org.roommanager.pageobjects.admin.main.MainPage;
 import org.roommanager.pageobjects.browser.BrowserManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
+@Listeners({org.roommanager.common.ScreenshotManager.class})
 public class EnabledImpersonation {
   private static WebDriver driver;
   public static Logger logger;
@@ -48,7 +47,6 @@ public class EnabledImpersonation {
 	/*Expected and Actual Result*/
 	String expectedResult = "Impersonation is now enabled."; 
 	By actualResult = ImpersonationModel.MESSAGE_IMPERSONATION;
-	
 	
 	
 	/*Test for Set Impersonation to Enabled*/

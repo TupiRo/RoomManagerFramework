@@ -23,6 +23,7 @@ import org.testng.annotations.Test;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
 import org.roommanager.models.admin.location.LocationModel;
+import org.roommanager.pageobjects.admin.location.DeleteLocationPage;
 import org.roommanager.pageobjects.admin.location.LocationPage;
 import org.roommanager.pageobjects.admin.login.LoginPage;
 import org.roommanager.pageobjects.admin.main.MainPage;
@@ -30,7 +31,7 @@ import org.roommanager.pageobjects.browser.BrowserManager;
 
 
 
-public class AddLocation {
+public class RemoveLocation {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -44,13 +45,11 @@ public class AddLocation {
   }
   
   @Test
-  public void testAddLocationSelenium() throws Exception {
+  public void testRemoveLocationSelenium() throws Exception {
 	
-	/*Variables*/
-	String nameLocation = "LocationTest01";
-	
+
 	/*Expected and Actual Result*/
-	String expectedResult = "Location successfully added";
+	By expectedResult = LocationModel.NAMEREMOVE_LOCATION;
 	By actualResult = LocationModel.MESSAGECREATE_LOCATION;
 	  
 	/*Test for Add a Location*/
@@ -61,13 +60,12 @@ public class AddLocation {
     LoginPage logIn = new LoginPage(driver);
     MainPage main = logIn.signInButton();
     LocationPage location = main.selectLocationOption();
-    location.selectAddLocationButton()
-    		.setName(nameLocation)
-    		.setDisplayName(nameLocation)
-    		.saveNewLocation();
+    			location.selectLocation();
+    DeleteLocationPage deleteLocation = location.selectRemoveLocationButton();
+    deleteLocation.removeLocation();
     
     (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
-	assertEquals(expectedResult, driver.findElement(actualResult).getText());
+    assertEquals("Location "+driver.findElement(expectedResult).getText()+" sucessfully removed", driver.findElement(actualResult).getText());
 	(new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
   }
 
