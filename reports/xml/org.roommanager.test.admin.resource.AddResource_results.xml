@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test Add Location"
+<testsuite name="Test Add Resource"
            tests="1"
            failures="0"
            errors="0"
            skipped="0"
-           time="12.359">
+           time="11.545">
   <properties />
   
   
-            <testcase name="testAddResourceSelenium" time="12.359" classname="org.roommanager.test.admin.resource.AddResource" />
+            <testcase name="testAddResourceSelenium" time="11.545" classname="org.roommanager.test.admin.resource.AddResource" />
       
 </testsuite>

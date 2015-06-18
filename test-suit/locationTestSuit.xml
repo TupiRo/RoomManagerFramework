@@ -12,10 +12,8 @@
     </classes>
   </test>
   <test name="Test Remove Location">
-    <classes>
-      
+    <classes>   
       <class name="org.roommanager.test.admin.location.RemoveLocation" />
     </classes>
   </test>
-  
 </suite>

@@ -7,15 +7,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.roommanager.common.LoggerManager;
+import org.roommanager.models.admin.location.CreateLocationModel;
 import org.roommanager.models.admin.location.LocationModel;
 
 
 public class CreateLocationPage {
 	
 	private final WebDriver driver;
-	By nameFieldLocator = LocationModel.NAMEFIELD_LOCATION;
-	By displayNameFieldLocator = LocationModel.DISPLAYNAMEFIELD_LOCATION;
-	By saveButtonLocator = LocationModel.SAVEBUTTON_LOCATION;
+	By nameFieldLocator = CreateLocationModel.NAMEFIELD_LOCATION;
+	By displayNameFieldLocator = CreateLocationModel.DISPLAYNAMEFIELD_LOCATION;
+	By saveButtonLocator = CreateLocationModel.SAVEBUTTON_LOCATION;
 
 	
     public CreateLocationPage(WebDriver driver) {

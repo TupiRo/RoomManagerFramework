@@ -5,14 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.roommanager.common.LoggerManager;
+import org.roommanager.models.admin.location.CreateLocationModel;
+import org.roommanager.models.admin.location.DeleteLocationModel;
 import org.roommanager.models.admin.location.LocationModel;
 
 
 public class DeleteLocationPage {
 	
 	private final WebDriver driver;
-	By removeButtonLocator = LocationModel.REMOVEBUTTON_DELETELOCATION;
-	By formLocator = LocationModel.FORM_DELETELOCATION;
+	By removeButtonLocator = DeleteLocationModel.REMOVEBUTTON_DELETELOCATION;
+	By formLocator = DeleteLocationModel.FORM_DELETELOCATION;
 	
     public DeleteLocationPage(WebDriver driver) {
         this.driver = driver;

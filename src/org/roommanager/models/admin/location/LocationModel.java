@@ -13,14 +13,9 @@ public final class LocationModel {
 	public static final By MESSAGE = By.cssSelector("div.ng-binding.ng-scope");
 	public static final By NAMEREMOVE_LOCATION = By.xpath("//div[@id='locationGrid']/div[2]/div/div/div[3]/div[2]/div/span"); 
 	
-	/*Create Location Page*/
-	public static final By NAMEFIELD_LOCATION = By.id("location-add-name");
-	public static final By DISPLAYNAMEFIELD_LOCATION = By.id("location-add-display-name");
-	public static final By SAVEBUTTON_LOCATION = By.cssSelector("button.btn.btn-primary");
+	
 	
 
-	/*Delete Location Page*/
-	public static final By FORM_DELETELOCATION = By.cssSelector("h3");
-	public static final By REMOVEBUTTON_DELETELOCATION = By.cssSelector("button.btn.btn-primary");
+	
 
 }

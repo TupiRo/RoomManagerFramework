@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -23,21 +24,21 @@ import org.testng.annotations.Test;
 import org.roommanager.common.ApiManager;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
-
 import org.roommanager.models.admin.resource.ResourceModel;
 import org.roommanager.pageobjects.admin.login.LoginPage;
 import org.roommanager.pageobjects.admin.main.MainPage;
 import org.roommanager.pageobjects.admin.resource.CreateResourcePage;
+import org.roommanager.pageobjects.admin.resource.DeleteResourcePage;
 import org.roommanager.pageobjects.admin.resource.ResourcePage;
 import org.roommanager.pageobjects.browser.BrowserManager;
 
 
 
-public class AddResource {
+public class RemoveResource {
   private WebDriver driver;
   private String baseUrl;
   public ReadFile reader = new ReadFile();
-  public String nameResource;
+  public String resourceName;
 
   @BeforeSuite
   public void setUp() throws Exception {
@@ -45,57 +46,55 @@ public class AddResource {
 	  LoggerManager.initLogger();
   }
   
+  @BeforeTest
+  public void setUpTest() throws Exception {
+	  resourceName = "ResourceTest01";
+	  String resourceDisplayName = "ResourceTest01";
+	  String resourceDescription = "ResourceTest01 Description";
+	  String resourceIcon = "";
+	  ApiManager.createNewResource(resourceName, resourceDisplayName, resourceIcon, resourceDescription);
+  }
+  
   @Test
-  public void testAddResourceSelenium() throws Exception {
+  public void testRemoveResourceSelenium() throws Exception {
 	
 	/*Variables*/
-	nameResource = "LocationTest01";
+	  resourceName = "ResourceTest01";
 	
 	/*Expected and Actual Result*/
-	String expectedResult = nameResource;
-	//By actualResult = ResourceModel.NAMECREATE_RESOURCE;
+	String expectedResult = resourceName;
+	By actualResult = ResourceModel.NAMECREATE_RESOURCE;
 	  
 	/*Test for Add a Resource*/
 	baseUrl = reader.getBaseURL();
 	driver.get(baseUrl + "/#/login");
 	LoggerManager.messageLogger("Browser Opened");
 	
+	driver.navigate().refresh();
     LoginPage logIn = new LoginPage(driver);
     MainPage main = logIn.signInButton();
     ResourcePage resource = main.selectResourceOption();
-    CreateResourcePage createResource = resource.selectAddResourceButton();
-    		createResource.setName(nameResource)
-    					.setDisplayName(nameResource);
-    
-    ResourcePage newResource = createResource.saveNewResource();
-    	newResource.selectSeacrhField()
-    				.setSearchField(nameResource);
+    			resource.selectSeacrhField()
+    					.setSearchField(resourceName)
+    					.selectResource();
+    DeleteResourcePage deleteResource = resource.selectRemoveResourceButton();
+    ResourcePage verifiedResource = deleteResource.removeResource();
+    			verifiedResource.selectSeacrhField()
+    							.setSearchField(resourceName);
 	
 	/*Verifying Assert of the Test Case*/
-	//(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
-    //assertEquals(expectedResult, driver.findElement(actualResult).getText());
-    //LoggerManager.messageLogger("Verifying the name resource");
-    	
-    	String actualResult = ApiManager.deleteRequestReturnName(nameResource);
-    	assertEquals(expectedResult, actualResult);
+	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.ngViewport.ng-scope")));
+    assertEquals("", driver.findElement(By.cssSelector("div.ngViewport.ng-scope")).getText());
+    LoggerManager.messageLogger("Verifying the name resource");
     
-    	System.out.println("Expected Result: "+expectedResult);
-        System.out.println("Actual Result: "+actualResult);
-    //System.out.println("Expected Result: "+expectedResult);
-    //System.out.println("Actual Result: "+driver.findElement(actualResult).getText());
-    
+    System.out.println("Expected Result: "+expectedResult);
+    System.out.println("Actual Result: "+driver.findElement(By.cssSelector("div.ngViewport.ng-scope")).getText());
+  
   }
   
-  /*@AfterTest
-  public void tearDownTest() throws Exception{
-	  //String createdResource= "LocationTest01";
-	  ApiManager.deleteRequest(nameResource);
-	  System.out.println("Apiiiiii");
-  }*/
   
   @AfterSuite
   public void tearDown() throws Exception {
     driver.quit();
   }
 }
-

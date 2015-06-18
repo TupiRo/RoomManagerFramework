@@ -6,10 +6,14 @@
 	      <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
 	      <listener class-name="org.roommanager.common.ScreenshotManager"/>
 	</listeners>	
-   <test name="Test Add Location">
+   <test name="Test Add Resource">
     <classes>
       <class name="org.roommanager.test.admin.resource.AddResource" />
     </classes>
   </test>
-  
+  <test name="Test Remove Resource">
+    <classes>
+      <class name="org.roommanager.test.admin.resource.RemoveResource" />
+    </classes>
+  </test>
 </suite>

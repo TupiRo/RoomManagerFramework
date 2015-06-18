@@ -48,10 +48,9 @@ public class ApiManager {
         } 
 		catch (Exception ex) {
 			LoggerManager.errorLogger("Error Message", ex);
-        }
-		
-		
+        }	
     }
+	
 	
 	public static String getRequest(String urlRequest) {
 		
@@ -112,8 +111,57 @@ public class ApiManager {
             httpClient.execute(request);
         } 
 		catch (IOException ex) {
+			LoggerManager.errorLogger("Error Message", ex);
         }
     }
+	
+	public static String deleteRequestReturnName(String name) {
+		String id = getResource(name);
+		String urlDelete = reader.getApiURL()+ "resources/" + id;
+		System.out.println(urlDelete);
+		String propertyName = "name";
+		
+		try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
+            HttpDelete request = new HttpDelete(urlDelete);
+            request.addHeader("content-type", "application/json");
+            
+            HttpResponse result = httpClient.execute(request);
+            json = EntityUtils.toString(result.getEntity(), "UTF-8");
+            
+            Object resourcesAsJson = jsonRequest(json);
+            if (resourcesAsJson instanceof JSONArray) {
+                JSONArray array=(JSONArray)resourcesAsJson;
+                for (Object object : array) {
+                    JSONObject obj =(JSONObject)object;
+                    if(obj.get(propertyName).toString().equals(name)){
+                    	return obj.get(propertyName).toString();
+                    }
+                }
+            }else if (resourcesAsJson instanceof JSONObject) {
+                JSONObject obj =(JSONObject)resourcesAsJson;
+                if(obj.get(propertyName).toString().equals(name)){
+                	return obj.get(propertyName).toString();
+                }
+            }
+        } 
+		catch (IOException ex) {
+			LoggerManager.errorLogger("Error Message", ex);
+        }
+		return null;
+		
+    }
+	
+	public static void createNewResource(String name, String displayName, String icon, String description){
+		String url = reader.getApiURL() + "resources";
+		String jsonResource = "{ \"name\": \"[name]\", \"customName\": \"[displayName]\","
+				+ " \"fontIcon\": \"[fontIcon]\", \"from\": \"\", \"description\": \"[description]\"}";
+		
+		jsonResource = jsonResource.replace("[name]", name)
+			.replace("[displayName]", displayName)
+			.replace("[fontIcon]", icon)
+			.replace("[description]", description);
+		postRequest(jsonResource);
+	}	
 	
 	
 	
