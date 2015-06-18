@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests Add and Remove Location, Add Respurce"
+<testsuite name="Test Impersonation is Enabled"
            tests="1"
            failures="0"
            errors="0"
            skipped="0"
-           time="7.458">
+           time="7.975">
   <properties />
   
   
-            <testcase name="testEnabledImpersonation" time="7.458" classname="org.roommanager.test.admin.impersonation.EnabledImpersonation" />
+            <testcase name="testEnabledImpersonation" time="7.975" classname="org.roommanager.test.admin.impersonation.EnabledImpersonation" />
       
 </testsuite>

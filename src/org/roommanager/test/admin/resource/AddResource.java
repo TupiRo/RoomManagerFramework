@@ -1,4 +1,4 @@
-package org.roommanager.test.admin.location;
+package org.roommanager.test.admin.resource;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -20,6 +20,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
  
 
+import org.roommanager.common.ApiManager;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
 import org.roommanager.models.admin.location.LocationModel;
@@ -27,17 +28,19 @@ import org.roommanager.pageobjects.admin.location.DeleteLocationPage;
 import org.roommanager.pageobjects.admin.location.LocationPage;
 import org.roommanager.pageobjects.admin.login.LoginPage;
 import org.roommanager.pageobjects.admin.main.MainPage;
+import org.roommanager.pageobjects.admin.resource.CreateResourcePage;
+import org.roommanager.pageobjects.admin.resource.ResourcePage;
 import org.roommanager.pageobjects.browser.BrowserManager;
 
 
 
-public class AddLocation {
+public class AddResource {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   public ReadFile reader = new ReadFile();
-  public String nameLocation;
+  public String nameResource;
 
   @BeforeSuite
   public void setUp() throws Exception {
@@ -46,43 +49,61 @@ public class AddLocation {
   }
   
   @Test
-  public void testAddLocationSelenium() throws Exception {
+  public void testAddResourceSelenium() throws Exception {
 	
 	/*Variables*/
-	nameLocation = "LocationTest01";
+	nameResource = "LocationTest01";
 	
 	/*Expected and Actual Result*/
 	String expectedResult = "Location successfully added";
 	By actualResult = LocationModel.MESSAGECREATE_LOCATION;
 	  
-	/*Test for Add a Location*/
+	/*Test for Add a Resource*/
 	baseUrl = reader.getBaseURL();
 	driver.get(baseUrl + "/#/login");
 	LoggerManager.messageLogger("Browser Opened");
 	
     LoginPage logIn = new LoginPage(driver);
     MainPage main = logIn.signInButton();
-    LocationPage location = main.selectLocationOption();
-    location.selectAddLocationButton()
-    		.setName(nameLocation)
-    		.setDisplayName(nameLocation)
-    		.saveNewLocation();
+    ResourcePage resource = main.selectResourceOption();
+    CreateResourcePage createResource = resource.selectAddResourceButton();
+    		createResource.setName(nameResource)
+    					.setDisplayName(nameResource);
     
-    (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
+    ResourcePage newResource = createResource.saveNewResource();
+    	newResource.selectSeacrhField()
+    				.setSearchField(nameResource);
+    
+    /*(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
 	assertEquals(expectedResult, driver.findElement(actualResult).getText());
-	(new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
+	(new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));*/
+	
+	/**/
+	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.ng-scope > span.ng-binding")));
+    assertEquals(nameResource, driver.findElement(By.cssSelector("div.ng-scope > span.ng-binding")).getText());
+    LoggerManager.messageLogger("Verifying the name resource");
+    System.out.println("Expected Result: "+nameResource);
+    System.out.println("Actual Result: "+driver.findElement(By.cssSelector("div.ng-scope > span.ng-binding")).getText());
+    //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
   
   @AfterTest
+  public void tearDownTest() throws Exception{
+	  String resourceToBeDeleted = "LocationTest01";
+	  ApiManager.deleteRequest(resourceToBeDeleted);
+	  System.out.println("Apiiiiii");
+  }
+  
+ /* @AfterTest
   public void testRemoveLocationSelenium() throws Exception {
 	
 
-	/*Expected and Actual Result*/
+	//Expected and Actual Result
 	//By expectedResult = LocationModel.NAMEREMOVE_LOCATION;
 	//String expectedResult = "Location "+nameLocation+" sucessfully removed";
 	By actualResult = LocationModel.MESSAGECREATE_LOCATION;
 	  
-	/*Test for Add a Location*/
+	/*Test for Add a Location
 	baseUrl = reader.getBaseURL();
 	driver.get(baseUrl + "/#/login");
 	LoggerManager.messageLogger("Browser Opened");
@@ -96,10 +117,10 @@ public class AddLocation {
     DeleteLocationPage deleteLocation = location.selectRemoveLocationButton();
     deleteLocation.removeLocation();
     
-    /*Assert of the Test Case*/
+    /*Assert of the Test Case
     (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
 	(new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
-  }
+  }*/
 
 
   @AfterSuite
@@ -111,3 +132,4 @@ public class AddLocation {
     }
   }
 }
+

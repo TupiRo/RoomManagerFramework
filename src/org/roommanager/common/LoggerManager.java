@@ -1,5 +1,6 @@
 package org.roommanager.common;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -19,6 +20,10 @@ public class LoggerManager {
 	
 	public static void messageLogger(String message){
 		logger.info(message);
+	}
+	
+	public static void errorLogger(String message, Exception t){
+		logger.error(message, t);
 	}
 	
 }

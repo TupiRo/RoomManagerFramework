@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.pageobjects.admin.impersonation.ImpersonationPage;
 import org.roommanager.pageobjects.admin.location.LocationPage;
+import org.roommanager.pageobjects.admin.resource.ResourcePage;
 
 public class MainPage {
 	
@@ -15,6 +16,7 @@ public class MainPage {
 	
 	By impersonationLocator = By.linkText("Impersonation");
 	By locationLocator = By.linkText("Locations");
+	By resourceLocator = By.linkText("Resources");
 	
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -35,5 +37,13 @@ public class MainPage {
         
         LoggerManager.messageLogger("Selecting Location Option");
         return new LocationPage(driver);    
+    }
+    
+    public ResourcePage selectResourceOption() {
+    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(resourceLocator));
+        driver.findElement(resourceLocator).click();
+        
+        LoggerManager.messageLogger("Selecting Resource Option");
+        return new ResourcePage(driver);    
     }
 }

@@ -1,4 +1,4 @@
-package org.roommanager.pageobjects.admin.location;
+package org.roommanager.pageobjects.admin.resource;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,8 +8,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.models.admin.location.LocationModel;
+import org.roommanager.pageobjects.admin.location.CreateLocationPage;
+import org.roommanager.pageobjects.admin.location.DeleteLocationPage;
+import org.roommanager.pageobjects.admin.location.LocationPage;
 
-public class LocationPage {
+public class ResourcePage {
 	
 	private final WebDriver driver;
 	
@@ -23,27 +26,21 @@ public class LocationPage {
 	
 	
 	
-    public LocationPage(WebDriver driver) {
+    public ResourcePage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public CreateLocationPage selectAddLocationButton(){
+    public CreateResourcePage selectAddResourceButton(){
     	
-    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(addButtonLocator));
-    	driver.findElement(addButtonLocator).click();
-    	LoggerManager.messageLogger("Click on Add Location Button");
+    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div/div/button")));
+        driver.findElement(By.xpath("//div/div/button")).click();
+    	LoggerManager.messageLogger("Click on Add Resource Button");
     	
-        return new CreateLocationPage(driver);    
+        return new CreateResourcePage(driver);    
     }
     
-	public LocationPage verifyLocationWasCreated() {
-	    	
-    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(message));
-    	assertEquals("Location successfully added", driver.findElement(messageLocator).getText());
-        return this;    
-    }
-	
-	public LocationPage selectLocation(){
+		
+	public ResourcePage selectResource(){
 		
 		/*(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(selectCheckBoxLocator));
 		int locationCreated = (driver.findElements(By.xpath("//div[@id='locationGrid']/div/div[2]/div/div"))).size(); 
@@ -72,6 +69,30 @@ public class LocationPage {
 		return this;
 	}
 	
+	public ResourcePage selectSeacrhField(){
+	    
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions.elementToBeClickable(By.xpath("//div/div/button")));
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div/div/button")));
+	    driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
+    	LoggerManager.messageLogger("Click on Search Field");
+    	
+    	
+        return this;    
+	}
+	
+	public ResourcePage setSearchField(String nameResource){
+    	
+    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='text']")));
+    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='text']")));
+        driver.findElement(By.xpath("//input[@type='text']")).clear();
+        driver.findElement(By.xpath("//input[@type='text']")).sendKeys(nameResource);
+        
+        LoggerManager.messageLogger("Setting the Name of the New Location");
+
+        return this;
+    }
+	
+	
 	public DeleteLocationPage selectRemoveLocationButton(){
     	
     	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(removeButtonLocator));
@@ -81,12 +102,4 @@ public class LocationPage {
         return new DeleteLocationPage(driver);    
     }
 	
-	public LocationPage verifyLocationWasRemoved(String nameLocation) {
-    	
-    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(messageRemoveLocator));
-    	assertEquals("Location "+nameLocation+" sucessfully removed", driver.findElement(messageRemoveLocator).getText());
-        return this;    
-    }
-
 }
-

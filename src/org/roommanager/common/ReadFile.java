@@ -34,6 +34,11 @@ public class ReadFile {
 		return prop.getProperty("baseURL");
 	}
 	
+	public String getApiURL(){
+		return prop.getProperty("apiURL");
+	}
+	
+	
 	public String getLoginURL(){
 		return prop.getProperty("loginURL");
 	}

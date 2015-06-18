@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test Add Location"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="13.348">
+  <properties />
+  
+  
+            <testcase name="testAddLocationSelenium" time="13.348" classname="org.roommanager.test.admin.location.AddLocation" />
+      
+</testsuite>

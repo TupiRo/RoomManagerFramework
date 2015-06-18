@@ -24,6 +24,7 @@ public class CreateLocationPage {
 
     public CreateLocationPage setName(String nameLocation){
     	
+    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.visibilityOfElementLocated(nameFieldLocator));
     	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(nameFieldLocator));
         driver.findElement(nameFieldLocator).clear();
         driver.findElement(nameFieldLocator).sendKeys(nameLocation);
@@ -52,6 +53,7 @@ public class CreateLocationPage {
     	driver.findElement(saveButtonLocator).click();
     	
     	LoggerManager.messageLogger("Click on Save Button");
+    	(new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(saveButtonLocator));
         
     	return new LocationPage(driver);    
     }  

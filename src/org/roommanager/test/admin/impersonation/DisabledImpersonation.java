@@ -17,28 +17,48 @@ import org.testng.annotations.Test;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
 import org.roommanager.models.admin.impersonation.ImpersonationModel;
+import org.roommanager.models.admin.location.LocationModel;
 import org.roommanager.pageobjects.admin.impersonation.ImpersonationPage;
 import org.roommanager.pageobjects.admin.login.LoginPage;
 import org.roommanager.pageobjects.admin.main.MainPage;
 import org.roommanager.pageobjects.browser.BrowserManager;
 import org.apache.log4j.Logger;
 
-@Listeners({org.roommanager.common.ScreenshotManager.class})
+
 public class DisabledImpersonation {
   
   private static WebDriver driver;
   public static Logger logger;
-  public String baseUrl;
+  
   public ReadFile reader = new ReadFile();
+  public String baseUrl = reader.getBaseURL();
 
   @BeforeSuite
   public void setUp() throws Exception {
 	 // driver = BrowserManager.initFireFox();
 	 LoggerManager.initLogger();
      driver = BrowserManager.initBrowser();
-   
   }
+  
+  @BeforeTest
+  public void setUpTest() throws Exception {
+	  
+	  driver.get(baseUrl + "/#/login");
+	  LoggerManager.messageLogger("Browser Opened");
+	  
+	  driver.navigate().refresh();
+	  LoginPage logIn = new LoginPage(driver);
+	  MainPage main = logIn.signInButton();
+	  ImpersonationPage impersonation = main.selectImpersonationOption();
+	  impersonation.verifyImpersonationIsDisabled()
+					.saveImpersonation();
+	  
+	  (new WebDriverWait(driver, 120)).until(ExpectedConditions.presenceOfElementLocated(ImpersonationModel.MESSAGE_IMPERSONATION));
+	  (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(ImpersonationModel.MESSAGE_IMPERSONATION));
+	  //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
+  }
+  
   @Test
   public void testDisabledImpersonation() throws Exception {
 	

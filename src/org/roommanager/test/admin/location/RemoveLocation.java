@@ -37,6 +37,7 @@ public class RemoveLocation {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   public ReadFile reader = new ReadFile();
+  public String nameLocation;
 
   @BeforeSuite
   public void setUp() throws Exception {
@@ -44,12 +45,40 @@ public class RemoveLocation {
 	  LoggerManager.initLogger();
   }
   
+  @BeforeTest
+  public void testAddLocationSelenium() throws Exception {
+	  /*Variables*/
+	  nameLocation = "LocationTest01";
+	
+	  /*Expected and Actual Result*/
+	  String expectedResult = "Location successfully added";
+	  By actualResult = LocationModel.MESSAGECREATE_LOCATION;
+	  
+	  /*Test for Add a Location*/
+	  baseUrl = reader.getBaseURL();
+	  driver.get(baseUrl + "/#/login");
+	  LoggerManager.messageLogger("Browser Opened");
+	
+	  driver.navigate().refresh();
+	  LoginPage logIn = new LoginPage(driver);
+	  MainPage main = logIn.signInButton();
+	  LocationPage location = main.selectLocationOption();
+	  location.selectAddLocationButton()
+	  		.setName(nameLocation)
+			.setDisplayName(nameLocation)
+			.saveNewLocation();
+	
+	  (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
+	  //assertEquals(expectedResult, driver.findElement(actualResult).getText());
+	  (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
+  }
+  
   @Test
   public void testRemoveLocationSelenium() throws Exception {
 	
 
-	/*Expected and Actual Result*/
-	By expectedResult = LocationModel.NAMEREMOVE_LOCATION;
+	  /*Expected and Actual Result*/
+	String expectedResult = "Location "+nameLocation+" sucessfully removed";
 	By actualResult = LocationModel.MESSAGECREATE_LOCATION;
 	  
 	/*Test for Add a Location*/
@@ -57,6 +86,7 @@ public class RemoveLocation {
 	driver.get(baseUrl + "/#/login");
 	LoggerManager.messageLogger("Browser Opened");
 	
+	driver.navigate().refresh();
     LoginPage logIn = new LoginPage(driver);
     MainPage main = logIn.signInButton();
     LocationPage location = main.selectLocationOption();
@@ -64,8 +94,9 @@ public class RemoveLocation {
     DeleteLocationPage deleteLocation = location.selectRemoveLocationButton();
     deleteLocation.removeLocation();
     
+    /*Assert of the Test Case*/
     (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
-    assertEquals("Location "+driver.findElement(expectedResult).getText()+" sucessfully removed", driver.findElement(actualResult).getText());
+    assertEquals(expectedResult, driver.findElement(actualResult).getText());
 	(new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
   }
 

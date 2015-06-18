@@ -40,16 +40,22 @@ public class ImpersonationPage {
     
     public ImpersonationPage verifyImpersonationIsEnabled() {
     	
-    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(messageLocator));
-        assertEquals("Impersonation is now enabled.", driver.findElement(messageLocator).getText());
+    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(impersonationLocator));
+        if(driver.findElement(impersonationLocator).isSelected()){
+        	driver.findElement(impersonationLocator).click();
+        }
+        (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(impersonationLocator));
         return this;    
     }
     
 	public ImpersonationPage verifyImpersonationIsDisabled() {
 	    	
-    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(messageLocator));
-        assertEquals("Impersonation is now disabled.", driver.findElement(messageLocator).getText());
-        return this;    
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(impersonationLocator));
+        if(!driver.findElement(impersonationLocator).isSelected()){
+        	driver.findElement(impersonationLocator).click();
+        }
+        (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(impersonationLocator));
+        return this;     
     }
 
 }

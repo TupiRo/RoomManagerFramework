@@ -7,6 +7,8 @@ package org.roommanager.test.admin.impersonation;
 
 import static org.junit.Assert.*;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,12 +27,12 @@ import org.roommanager.pageobjects.admin.main.MainPage;
 import org.roommanager.pageobjects.browser.BrowserManager;
 import org.apache.log4j.Logger;
 
-@Listeners({org.roommanager.common.ScreenshotManager.class})
+
 public class EnabledImpersonation {
   private static WebDriver driver;
   public static Logger logger;
-  public String baseUrl;
   public ReadFile reader = new ReadFile();
+  public String baseUrl = reader.getBaseURL();
 
   @BeforeSuite
   public void setUp() throws Exception {
@@ -38,9 +40,27 @@ public class EnabledImpersonation {
 	  //driver = BrowserManager.initFireFox();
 	  driver = BrowserManager.initBrowser();
 	  LoggerManager.initLogger();
+	  
 
   }
 
+  @BeforeTest
+  public void setUpTest() throws Exception {
+	  
+	  driver.get(baseUrl + "/#/login");
+	  LoggerManager.messageLogger("Browser Opened");
+	
+	  LoginPage logIn = new LoginPage(driver);
+	  MainPage main = logIn.signInButton();
+	  ImpersonationPage impersonation = main.selectImpersonationOption();
+	  impersonation.verifyImpersonationIsEnabled()
+					.saveImpersonation();
+	  
+	  (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(ImpersonationModel.MESSAGE_IMPERSONATION));
+	  //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+  }
+  
   @Test
   public void testEnabledImpersonation() throws Exception {
 	
@@ -50,10 +70,11 @@ public class EnabledImpersonation {
 	
 	
 	/*Test for Set Impersonation to Enabled*/
-	baseUrl = reader.getBaseURL();
+	//baseUrl = reader.getBaseURL();
 	driver.get(baseUrl + "/#/login");
 	LoggerManager.messageLogger("Browser Opened");
 	
+	driver.navigate().refresh();
 	LoginPage logIn = new LoginPage(driver);
 	MainPage main = logIn.signInButton();
 	ImpersonationPage impersonation = main.selectImpersonationOption();
@@ -65,6 +86,26 @@ public class EnabledImpersonation {
     (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
 	
 	
+  }
+  
+  @AfterTest
+  public void tearDownTest() throws Exception {
+	  
+	  driver.get(baseUrl + "/#/login");
+		LoggerManager.messageLogger("Browser Opened");
+		
+		driver.navigate().refresh();
+		LoginPage logIn = new LoginPage(driver);
+		MainPage main = logIn.signInButton();
+		ImpersonationPage impersonation = main.selectImpersonationOption();
+		impersonation.checkImpersonation()
+					.saveImpersonation();
+		
+	  (new WebDriverWait(driver, 120)).until(ExpectedConditions.presenceOfElementLocated(ImpersonationModel.MESSAGE_IMPERSONATION));
+	  (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(ImpersonationModel.MESSAGE_IMPERSONATION));
+	  //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+
   }
 
   @AfterSuite
