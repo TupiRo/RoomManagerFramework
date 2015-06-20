@@ -50,5 +50,17 @@ public class ReadFile {
 	public String getPassword(){
 		return prop.getProperty("password");
 	}
+	
+	public String getApiLocationsURL(){
+		return prop.getProperty("apiLocationsURL");
+	}
+	
+	public String getApiResourcesURL(){
+		return prop.getProperty("apiResourcesURL");
+	}
+	
+	public String getApiServicesURL(){
+		return prop.getProperty("apiServicesURL");
+	}
 }
 

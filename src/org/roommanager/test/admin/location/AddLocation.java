@@ -20,6 +20,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
  
 
+import org.roommanager.common.ApiManager;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
 import org.roommanager.models.admin.location.LocationModel;
@@ -34,8 +35,6 @@ import org.roommanager.pageobjects.browser.BrowserManager;
 public class AddLocation {
   private WebDriver driver;
   private String baseUrl;
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
   public ReadFile reader = new ReadFile();
   public String nameLocation;
 
@@ -52,12 +51,12 @@ public class AddLocation {
 	nameLocation = "LocationTest01";
 	
 	/*Expected and Actual Result*/
-	String expectedResult = "Location successfully added";
-	By actualResult = LocationModel.MESSAGECREATE_LOCATION;
+	String expectedResult = nameLocation;
+
 	  
 	/*Test for Add a Location*/
 	baseUrl = reader.getBaseURL();
-	driver.get(baseUrl + "/#/login");
+	driver.get(baseUrl + reader.getLoginURL());
 	LoggerManager.messageLogger("Browser Opened");
 	
     LoginPage logIn = new LoginPage(driver);
@@ -68,46 +67,29 @@ public class AddLocation {
     		.setDisplayName(nameLocation)
     		.saveNewLocation();
     
-    (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
-	assertEquals(expectedResult, driver.findElement(actualResult).getText());
-	(new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
+    location.refreshLocationPage();
+    (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(LocationModel.GRID_LOCATION));
+    
+    /*Assert for the TC*/
+    String actualResult = location.getLocationName(nameLocation);
+    assertEquals(expectedResult, actualResult);
+    
+    System.out.println("Expected Result:"+expectedResult);
+    System.out.println("Actual Result:"+actualResult);
+    
+    
   }
   
   @AfterTest
-  public void testRemoveLocationSelenium() throws Exception {
-	
-
-	/*Expected and Actual Result*/
-	//By expectedResult = LocationModel.NAMEREMOVE_LOCATION;
-	//String expectedResult = "Location "+nameLocation+" sucessfully removed";
-	By actualResult = LocationModel.MESSAGECREATE_LOCATION;
+  public void tearDownTest() throws Exception{
 	  
-	/*Test for Add a Location*/
-	baseUrl = reader.getBaseURL();
-	driver.get(baseUrl + "/#/login");
-	LoggerManager.messageLogger("Browser Opened");
-	
-	driver.navigate().refresh();
-	
-    LoginPage logIn = new LoginPage(driver);
-    MainPage main = logIn.signInButton();
-    LocationPage location = main.selectLocationOption();
-    			location.selectLocation();
-    DeleteLocationPage deleteLocation = location.selectRemoveLocationButton();
-    deleteLocation.removeLocation();
-    
-    /*Assert of the Test Case*/
-    (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
-	(new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
+	  /*Deleting Location by API*/
+	  ApiManager.deleteRequest(nameLocation,reader.getApiLocationsURL());
+	  System.out.println("Apiiiiii");
   }
-
 
   @AfterSuite
   public void tearDown() throws Exception {
     driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
   }
 }

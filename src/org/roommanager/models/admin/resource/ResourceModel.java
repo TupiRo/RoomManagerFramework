@@ -11,13 +11,16 @@ public class ResourceModel {
 	public static final By SELECTSEARCHFIELD_RESOURCE =	By.xpath("(//button[@type='button'])[5]");
 	public static final By SEARCHTEXTFIELD_RESOURCE = By.xpath("//input[@type='text']");
 	public static final By NAMECREATE_RESOURCE = By.cssSelector("div.ng-scope > span.ng-binding");
+	public static final By REMOVEBUTTON_RESOURCES = By.id("btnRemove");
 	
-	public static final By MESSAGECREATE_LOCATION = By.xpath("//div[@id='toast-container']/div");
-	public static final By SELECTCHECKBOX_LOCATION = By.cssSelector("input.ngSelectionCheckbox");
-	public static final By REMOVEBUTTON_LOCATION = By.xpath("//button[2]");
-	public static final By MESSAGEREMOVE_LOCATION = By.cssSelector("div.ng-binding.ng-scope");
-	public static final By MESSAGE = By.cssSelector("div.ng-binding.ng-scope");
-	public static final By NAMEREMOVE_LOCATION = By.xpath("//div[@id='locationGrid']/div[2]/div/div/div[3]/div[2]/div/span"); 
+	public static final By SELECTGRID_RESOURCES = By.xpath("(//button[@type='button'])[5]");
+	public static final By GRID_RESOURCES = By.xpath("//div[@id='resourcesGrid']/div[2]/div");
+	public static final By TEXTGRID_RESOURCES= By.xpath("div[3]/div[2]/div/span");
+	public static final By DIV_RESOURCES = By.xpath("div");
+	
+	//div[@id='resourcesGrid']/div[2]/div
+	//div[3]/div[2]/div/span
+	
 	
 	
 }

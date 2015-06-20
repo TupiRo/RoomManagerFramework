@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="6.613">
+           time="9.577">
   <properties />
   
   
-            <testcase name="testDisabledImpersonation" time="6.613" classname="org.roommanager.test.admin.impersonation.DisabledImpersonation" />
+            <testcase name="testDisabledImpersonation" time="9.577" classname="org.roommanager.test.admin.impersonation.DisabledImpersonation" />
       
 </testsuite>

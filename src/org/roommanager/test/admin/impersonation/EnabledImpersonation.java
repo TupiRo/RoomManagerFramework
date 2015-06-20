@@ -18,6 +18,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.roommanager.common.ApiManager;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
 import org.roommanager.models.admin.impersonation.ImpersonationModel;
@@ -41,23 +42,15 @@ public class EnabledImpersonation {
 	  driver = BrowserManager.initBrowser();
 	  LoggerManager.initLogger();
 	  
-
   }
 
   @BeforeTest
   public void setUpTest() throws Exception {
 	  
-	  driver.get(baseUrl + "/#/login");
-	  LoggerManager.messageLogger("Browser Opened");
-	
-	  LoginPage logIn = new LoginPage(driver);
-	  MainPage main = logIn.signInButton();
-	  ImpersonationPage impersonation = main.selectImpersonationOption();
-	  impersonation.verifyImpersonationIsEnabled()
-					.saveImpersonation();
-	  
-	  (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(ImpersonationModel.MESSAGE_IMPERSONATION));
-	  //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  String impersonation = "false";
+	  String urlRequest = reader.getApiServicesURL();
+	  String name = "Microsoft Exchange Server 2010 SP3";
+	  ApiManager.setImpersonation(impersonation, urlRequest, name);
 
   }
   
@@ -71,7 +64,7 @@ public class EnabledImpersonation {
 	
 	/*Test for Set Impersonation to Enabled*/
 	//baseUrl = reader.getBaseURL();
-	driver.get(baseUrl + "/#/login");
+	driver.get(baseUrl + reader.getLoginURL());
 	LoggerManager.messageLogger("Browser Opened");
 	
 	driver.navigate().refresh();
@@ -81,6 +74,7 @@ public class EnabledImpersonation {
 	impersonation.checkImpersonation()
 				.saveImpersonation();
 	
+	/*Assert of the Test Case about Impersonation is Enabled*/
 	(new WebDriverWait(driver, 120)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
     assertEquals(expectedResult, driver.findElement(actualResult).getText());
     (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(actualResult));
@@ -88,25 +82,6 @@ public class EnabledImpersonation {
 	
   }
   
-  @AfterTest
-  public void tearDownTest() throws Exception {
-	  
-	  driver.get(baseUrl + "/#/login");
-		LoggerManager.messageLogger("Browser Opened");
-		
-		driver.navigate().refresh();
-		LoginPage logIn = new LoginPage(driver);
-		MainPage main = logIn.signInButton();
-		ImpersonationPage impersonation = main.selectImpersonationOption();
-		impersonation.checkImpersonation()
-					.saveImpersonation();
-		
-	  (new WebDriverWait(driver, 120)).until(ExpectedConditions.presenceOfElementLocated(ImpersonationModel.MESSAGE_IMPERSONATION));
-	  (new WebDriverWait(driver, 120)).until(ExpectedConditions.invisibilityOfElementLocated(ImpersonationModel.MESSAGE_IMPERSONATION));
-	  //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-
-  }
 
   @AfterSuite
   public void tearDown() throws Exception {

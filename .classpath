@@ -3,11 +3,13 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/Documents/Monitor Henry/Selenium/selenium-server-standalone-2.45.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/Documents/Monitor Henry/junit/junit-4.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/Documents/Monitor Henry/ReportNG-Listerners/guice-3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/Documents/Monitor Henry/ReportNG-Listerners/reportng-1.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/Documents/Monitor Henry/ReportNG-Listerners/velocity-dep-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/Documents/Monitor Henry/Log4J for Selenium/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/workspace/RoomManagerFramework/resources/selenium-server-standalone-2.45.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/workspace/RoomManagerFramework/resources/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/workspace/RoomManagerFramework/resources/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/workspace/RoomManagerFramework/resources/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/workspace/RoomManagerFramework/resources/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/workspace/RoomManagerFramework/resources/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/workspace/RoomManagerFramework/resources/httpcore-4.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rodrigo Zarate/workspace/RoomManagerFramework/resources/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

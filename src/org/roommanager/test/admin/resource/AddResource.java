@@ -23,7 +23,7 @@ import org.testng.annotations.Test;
 import org.roommanager.common.ApiManager;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
-
+import org.roommanager.models.admin.location.LocationModel;
 import org.roommanager.models.admin.resource.ResourceModel;
 import org.roommanager.pageobjects.admin.login.LoginPage;
 import org.roommanager.pageobjects.admin.main.MainPage;
@@ -49,15 +49,14 @@ public class AddResource {
   public void testAddResourceSelenium() throws Exception {
 	
 	/*Variables*/
-	nameResource = "LocationTest01";
+	nameResource = "ResourceTest01";
 	
 	/*Expected and Actual Result*/
 	String expectedResult = nameResource;
-	//By actualResult = ResourceModel.NAMECREATE_RESOURCE;
 	  
 	/*Test for Add a Resource*/
 	baseUrl = reader.getBaseURL();
-	driver.get(baseUrl + "/#/login");
+	driver.get(baseUrl + reader.getLoginURL());
 	LoggerManager.messageLogger("Browser Opened");
 	
     LoginPage logIn = new LoginPage(driver);
@@ -66,32 +65,28 @@ public class AddResource {
     CreateResourcePage createResource = resource.selectAddResourceButton();
     		createResource.setName(nameResource)
     					.setDisplayName(nameResource);
-    
+        	
     ResourcePage newResource = createResource.saveNewResource();
-    	newResource.selectSeacrhField()
-    				.setSearchField(nameResource);
+    				newResource.selectGridResources();
+    				
 	
 	/*Verifying Assert of the Test Case*/
-	//(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(actualResult));
-    //assertEquals(expectedResult, driver.findElement(actualResult).getText());
-    //LoggerManager.messageLogger("Verifying the name resource");
-    	
-    	String actualResult = ApiManager.deleteRequestReturnName(nameResource);
-    	assertEquals(expectedResult, actualResult);
+   
+    (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(ResourceModel.GRID_RESOURCES));
+    String actualResult = newResource.getResourceName(nameResource);
+    assertEquals(expectedResult, actualResult);
     
-    	System.out.println("Expected Result: "+expectedResult);
-        System.out.println("Actual Result: "+actualResult);
-    //System.out.println("Expected Result: "+expectedResult);
-    //System.out.println("Actual Result: "+driver.findElement(actualResult).getText());
+    System.out.println("Expected Result:"+expectedResult);
+    System.out.println("Actual Result:"+actualResult);
     
   }
   
-  /*@AfterTest
+  @AfterTest
   public void tearDownTest() throws Exception{
-	  //String createdResource= "LocationTest01";
-	  ApiManager.deleteRequest(nameResource);
+	  
+	  ApiManager.deleteRequest(nameResource, reader.getApiResourcesURL());
 	  System.out.println("Apiiiiii");
-  }*/
+  }
   
   @AfterSuite
   public void tearDown() throws Exception {

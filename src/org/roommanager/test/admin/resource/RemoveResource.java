@@ -24,6 +24,7 @@ import org.testng.annotations.Test;
 import org.roommanager.common.ApiManager;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.common.ReadFile;
+import org.roommanager.models.admin.location.LocationModel;
 import org.roommanager.models.admin.resource.ResourceModel;
 import org.roommanager.pageobjects.admin.login.LoginPage;
 import org.roommanager.pageobjects.admin.main.MainPage;
@@ -52,7 +53,8 @@ public class RemoveResource {
 	  String resourceDisplayName = "ResourceTest01";
 	  String resourceDescription = "ResourceTest01 Description";
 	  String resourceIcon = "";
-	  ApiManager.createNewResource(resourceName, resourceDisplayName, resourceIcon, resourceDescription);
+	  String urlRequest = reader.getApiResourcesURL();
+	  ApiManager.createNewResource(resourceName, resourceDisplayName, resourceIcon, resourceDescription,urlRequest);
   }
   
   @Test
@@ -62,34 +64,33 @@ public class RemoveResource {
 	  resourceName = "ResourceTest01";
 	
 	/*Expected and Actual Result*/
-	String expectedResult = resourceName;
-	By actualResult = ResourceModel.NAMECREATE_RESOURCE;
+	boolean expectedResult = true;
 	  
 	/*Test for Add a Resource*/
 	baseUrl = reader.getBaseURL();
-	driver.get(baseUrl + "/#/login");
+	driver.get(baseUrl + reader.getLoginURL());
 	LoggerManager.messageLogger("Browser Opened");
 	
 	driver.navigate().refresh();
     LoginPage logIn = new LoginPage(driver);
     MainPage main = logIn.signInButton();
     ResourcePage resource = main.selectResourceOption();
-    			resource.selectSeacrhField()
-    					.setSearchField(resourceName)
-    					.selectResource();
+    			resource.selectGridResources()
+    					.selectResource(resourceName);
     DeleteResourcePage deleteResource = resource.selectRemoveResourceButton();
-    ResourcePage verifiedResource = deleteResource.removeResource();
-    			verifiedResource.selectSeacrhField()
-    							.setSearchField(resourceName);
-	
-	/*Verifying Assert of the Test Case*/
-	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.ngViewport.ng-scope")));
-    assertEquals("", driver.findElement(By.cssSelector("div.ngViewport.ng-scope")).getText());
-    LoggerManager.messageLogger("Verifying the name resource");
+    ResourcePage removedResource = deleteResource.removeResource();
     
-    System.out.println("Expected Result: "+expectedResult);
-    System.out.println("Actual Result: "+driver.findElement(By.cssSelector("div.ngViewport.ng-scope")).getText());
-  
+    removedResource.refreshResourcePage();
+    (new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(ResourceModel.GRID_RESOURCES));
+    
+    /*Assert about Remove a Location*/
+    boolean actualResult = removedResource.VerifyResourceWasRemoved(resourceName);
+    assertTrue(actualResult);
+    
+    System.out.println("Resource Name:"+resourceName);
+    System.out.println("Expected Result:"+expectedResult);
+    System.out.println("Actual Result:"+actualResult);
+    
   }
   
   

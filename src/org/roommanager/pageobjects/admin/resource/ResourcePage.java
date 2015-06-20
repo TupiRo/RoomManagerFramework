@@ -2,8 +2,11 @@ package org.roommanager.pageobjects.admin.resource;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.roommanager.common.LoggerManager;
@@ -21,6 +24,12 @@ public class ResourcePage {
 	By searchFieldLocator = ResourceModel.SEARCHFIELD_RESOURCE;
 	By selectSearchFieldLocator = ResourceModel.SELECTSEARCHFIELD_RESOURCE;
 	By textFieldSearchLocator = ResourceModel.SEARCHTEXTFIELD_RESOURCE;
+	By removeButtonLocator = ResourceModel.REMOVEBUTTON_RESOURCES;
+	
+	By selectGridLocator = ResourceModel.SELECTGRID_RESOURCES;
+	By gridLocator = ResourceModel.GRID_RESOURCES;
+	By textGridLocator = ResourceModel.TEXTGRID_RESOURCES;
+	By divLocator = ResourceModel.DIV_RESOURCES;
 	
 	
 	
@@ -38,32 +47,14 @@ public class ResourcePage {
     }
     
 		
-	public ResourcePage selectResource(){
+	public ResourcePage selectResource(String name){
 		
-		/*(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(selectCheckBoxLocator));
-		int locationCreated = (driver.findElements(By.xpath("//div[@id='locationGrid']/div/div[2]/div/div"))).size(); 
-	    driver.findElement(selectCheckBoxLocator).click();
-	    LoggerManager.messageLogger("Selecting a Location");
-	    
-		return this;*/
 		
-		/*(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(selectCheckBoxLocator));
-		int locationPosition = (driver.findElements(By.xpath("//div[@id='locationGrid']/div/div[2]/div/div"))).size(); 
-	    locationLocator.toString().replace("numbColumn", ""+locationPosition);
-		driver.findElement(locationLocator.toString().replace("numbColumn", ""+locationPosition)).click();
-	    LoggerManager.messageLogger("Selecting a Location");
-	    
-		return this;*/
-		//div[@id='locationGrid']/div[2]/div/div[4]/div[3]/div[2]/div/span
 		
-		(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.ngSelectionCell.ng-scope")));
-		//int resourcePosition = (driver.findElements(By.xpath("//div[@id='resourceGrid']/div[2]/div/*"))).size(); 
-	    //System.out.println("Position gf "+resourcePosition);
-	    System.out.println("//div[@id='resourcesGrid']/div[2]/div/div/div[3]/div[2]/div");
-		//locationLocator.toString().replace("numbColumn", ""+locationPosition);
-		driver.findElement(By.xpath("//div[@id='resourcesGrid']/div[2]/div/div/div[3]/div[2]/div")).click();
-	    LoggerManager.messageLogger("Selecting a Location");
-	    
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(gridLocator));
+		WebElement resource = findResource(name);
+		resource.click();
+		
 		return this;
 	}
 	
@@ -91,13 +82,59 @@ public class ResourcePage {
 	
 	public DeleteResourcePage selectRemoveResourceButton(){
     	
-		(new WebDriverWait(driver, 60)).until(ExpectedConditions.visibilityOfElementLocated(By.id("btnRemove")));
-    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(By.id("btnRemove")));
-    	driver.findElement(By.id("btnRemove")).click();
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions.visibilityOfElementLocated(removeButtonLocator));
+    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(removeButtonLocator));
+    	driver.findElement(removeButtonLocator).click();
     	LoggerManager.messageLogger("Click on Remove Button");
     	
         return new DeleteResourcePage(driver);    
     }
+	
+	public ResourcePage selectGridResources(){
+	    
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions.elementToBeClickable(selectGridLocator));
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(selectGridLocator));
+	    driver.findElement(selectGridLocator).click();
+    	LoggerManager.messageLogger("Click on Next Page Button");
+    	
+        return this;    
+	}
+	
+	
+	
+	private WebElement findResource(String name){
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(gridLocator));
+    	WebElement resources = driver.findElement(gridLocator);
+    	
+    	List<WebElement> resourceList = resources.findElements(divLocator);
+    	
+    	for (WebElement resource : resourceList) {
+			String resourceName = resource.findElement(textGridLocator).getText();
+			System.out.println(resourceName);
+			if(resourceName.equals(name)){
+				LoggerManager.messageLogger("The resource was found");
+				return resource;
+			}
+		}
+    	
+    	LoggerManager.messageLogger("The resource not exists");
+    	
+        return null;    
+    }
+	
+	public String getResourceName(String resourceName){
+		WebElement resource = findResource(resourceName);
+		return resource.findElement(textGridLocator).getText();	
+	}
+	
+	public boolean VerifyResourceWasRemoved(String resourceName){
+		WebElement resource = findResource(resourceName);
+		return (resource == null) ? true : false;
+	}
+	
+	public void refreshResourcePage(){
+		driver.navigate().refresh();
+	}
 	
 	
 }

@@ -2,12 +2,17 @@ package org.roommanager.pageobjects.admin.location;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.roommanager.common.LoggerManager;
 import org.roommanager.models.admin.location.LocationModel;
+
+import com.thoughtworks.selenium.webdriven.commands.Refresh;
 
 public class LocationPage {
 	
@@ -20,6 +25,10 @@ public class LocationPage {
 	By messageRemoveLocator = LocationModel.MESSAGEREMOVE_LOCATION;
 	By message = LocationModel.MESSAGE;
 	By locationLocator = LocationModel.NAMEREMOVE_LOCATION;
+	
+	By gridLocator = LocationModel.GRID_LOCATION;
+	By textGridLocator = LocationModel.TEXTGRID_LOCATION;
+	By divLocator = LocationModel.DIV_LOCATION;
 	
 	
 	
@@ -43,32 +52,13 @@ public class LocationPage {
         return this;    
     }
 	
-	public LocationPage selectLocation(){
+	public LocationPage selectLocation(String name){
 		
-		/*(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(selectCheckBoxLocator));
-		int locationCreated = (driver.findElements(By.xpath("//div[@id='locationGrid']/div/div[2]/div/div"))).size(); 
-	    driver.findElement(selectCheckBoxLocator).click();
-	    LoggerManager.messageLogger("Selecting a Location");
-	    
-		return this;*/
-		
-		/*(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(selectCheckBoxLocator));
-		int locationPosition = (driver.findElements(By.xpath("//div[@id='locationGrid']/div/div[2]/div/div"))).size(); 
-	    locationLocator.toString().replace("numbColumn", ""+locationPosition);
-		driver.findElement(locationLocator.toString().replace("numbColumn", ""+locationPosition)).click();
-	    LoggerManager.messageLogger("Selecting a Location");
-	    
-		return this;*/
-		//div[@id='locationGrid']/div[2]/div/div[4]/div[3]/div[2]/div/span
 		
 		(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(selectCheckBoxLocator));
-		int locationPosition = (driver.findElements(By.xpath("//div[@id='locationGrid']/div[2]/div/*"))).size(); 
-	    System.out.println("Position gf "+locationPosition);
-	    System.out.println("//div[@id='locationGrid']/div[2]/div/div["+locationPosition+"]/div[3]/div[2]/div/span");
-		//locationLocator.toString().replace("numbColumn", ""+locationPosition);
-		driver.findElement(By.xpath("//div[@id='locationGrid']/div[2]/div/div["+locationPosition+"]/div[3]/div[2]/div/span")).click();
-	    LoggerManager.messageLogger("Selecting a Location");
-	    
+		WebElement location = findLocation(name);
+		location.click();
+		
 		return this;
 	}
 	
@@ -81,12 +71,40 @@ public class LocationPage {
         return new DeleteLocationPage(driver);    
     }
 	
-	public LocationPage verifyLocationWasRemoved(String nameLocation) {
+	
+	private WebElement findLocation(String name){
+		(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(gridLocator));
+    	WebElement locations = driver.findElement(gridLocator);
     	
-    	(new WebDriverWait(driver, 60)).until(ExpectedConditions.presenceOfElementLocated(messageRemoveLocator));
-    	assertEquals("Location "+nameLocation+" sucessfully removed", driver.findElement(messageRemoveLocator).getText());
-        return this;    
+    	List<WebElement> locationList = locations.findElements(divLocator);
+    	
+    	for (WebElement location : locationList) {
+			String locationName = location.findElement(textGridLocator).getText();
+			System.out.println(locationName);
+			if(locationName.equals(name)){
+				LoggerManager.messageLogger("The Location was found");
+				return location;
+			}
+		}
+    	
+    	LoggerManager.messageLogger("The Location does not exists");
+    	
+        return null;    
     }
+	
+	public String getLocationName(String locationName){
+		WebElement location = findLocation(locationName);
+		return location.findElement(textGridLocator).getText();	
+	}
+	
+	public boolean VerifyLocationWasRemoved(String locationName){
+		WebElement location = findLocation(locationName);
+		return (location == null) ? true : false;
+	}
+	
+	public void refreshLocationPage(){
+		driver.navigate().refresh();
+	}
 
 }
 
